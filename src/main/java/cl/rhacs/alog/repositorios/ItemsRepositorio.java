@@ -78,6 +78,13 @@ public class ItemsRepositorio implements IItemsRepositorio {
     // CRUD
     // -----------------------------------------------------------------------------------------
 
+    /**
+     * Agrega un registro al repositorio
+     * 
+     * @param registro objeto {@link Item} a agregar
+     * @return {@code true} si el registro fue agregado, {@code false} en cualquier
+     *         otro caso
+     */
     @Override
     public boolean agregarRegistro(Item registro) {
         // Crear respuesta
@@ -115,6 +122,13 @@ public class ItemsRepositorio implements IItemsRepositorio {
         return agregado;
     }
 
+    /**
+     * Busca un registro en el repositorio
+     * 
+     * @param id identificador numérico del registro
+     * @return un objeto {@link Item} con el resultado, {@code null} en cualquier
+     *         otro caso
+     */
     @Override
     public Item buscarPorId(int id) {
         // Crear respuesta
@@ -154,6 +168,12 @@ public class ItemsRepositorio implements IItemsRepositorio {
         return item;
     }
 
+    /**
+     * Busca todos los registros del repositorio
+     * 
+     * @return un objeto {@link List} con los resultados, {@code null} en cualquier
+     *         otro caso
+     */
     @Override
     public List<Item> buscarTodos() {
         // Crear listado
@@ -195,6 +215,13 @@ public class ItemsRepositorio implements IItemsRepositorio {
         return items;
     }
 
+    /**
+     * Busca un listado de registros que coincidan con la descripción proporcionada
+     * 
+     * @param descripcion descripción a buscar
+     * @return un objeto {@link List} con los resultados, {@code null} en cualquier
+     *         otro caso
+     */
     @Override
     public List<Item> busarPorDescripcion(String descripcion) {
         // Crear listado
@@ -242,6 +269,13 @@ public class ItemsRepositorio implements IItemsRepositorio {
         return items;
     }
 
+    /**
+     * Busca los registros en el repositorio que coincidan con el precio indicado
+     * 
+     * @param precio valor del producto
+     * @return un objeto {@link List} con los resultados, {@code null} en cualquier
+     *         otro caso
+     */
     @Override
     public List<Item> buscarPorPrecio(double precio) {
         // Crear listado
@@ -279,7 +313,7 @@ public class ItemsRepositorio implements IItemsRepositorio {
                     } while (rs.next());
                 }
             } catch (SQLException e) {
-                Utilidades.extraerError(this.getClass().getSimpleName(), "buscarPorDescripcion", e);
+                Utilidades.extraerError(this.getClass().getSimpleName(), "buscarPorPrecio", e);
             } finally {
                 // Desconectar
                 conexion.desconectar();
@@ -289,6 +323,13 @@ public class ItemsRepositorio implements IItemsRepositorio {
         return items;
     }
 
+    /**
+     * Actualiza la información de un registro en el repositorio
+     * 
+     * @param registro objeto {@link Item} a actualizar
+     * @return {@code true} si el registro fue actualizado, {@code false} en
+     *         cualquier otro caso
+     */
     @Override
     public boolean actualizarRegistro(Item registro) {
         // Crear respuesta
@@ -327,6 +368,13 @@ public class ItemsRepositorio implements IItemsRepositorio {
         return actualizado;
     }
 
+    /**
+     * Elimina un registro del repositorio
+     * 
+     * @param registro objeto {@link Item} a eliminar
+     * @return {@code true} si el objeto fue eliminado, {@code false} en cualquier
+     *         otro caso
+     */
     @Override
     public boolean eliminarRegistro(Item registro) {
         // Crear respuesta
