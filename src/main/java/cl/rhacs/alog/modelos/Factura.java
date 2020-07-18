@@ -10,7 +10,7 @@ public class Factura {
     // -----------------------------------------------------------------------------------------
 
     /** Impuesto al Valor Agregado */
-    private final int IVA = 19;
+    public static final int IVA = 19;
 
     // Atributos
     // -----------------------------------------------------------------------------------------
@@ -45,6 +45,7 @@ public class Factura {
     public Factura(int facturaId, Date fecha, Set<Item> items) {
         this.facturaId = facturaId;
         this.fecha = fecha;
+        this.items = items;
     }
 
     // Métodos
@@ -78,6 +79,23 @@ public class Factura {
         return this.items.size();
     }
 
+    public double calcularSubtotal() {
+        // Verificar si no hay elementos
+        if (items.isEmpty()) {
+            return 0;
+        }
+
+        // Inicializar subtotal
+        double subtotal = 0;
+
+        // Por cada item, sumar su precio unitario por la cantidad al subtotal
+        for (Item item : items) {
+            subtotal += item.calcularSubtotal();
+        }
+
+        return subtotal;
+    }
+
     /**
      * @return el valor total, incluido el iva, de la {@link Factura}
      */
@@ -90,13 +108,19 @@ public class Factura {
         // Inicializar total
         double total = 0;
 
-        // Por cada item, sumar su precio unitario por la cantidad al total
+        // Por cada item, obtener el total
         for (Item item : items) {
-            total += item.getPrecioUnitario() * item.getCantidad();
+            total += item.calcularTotal();
         }
 
-        // Aplicar IVA y devolver valor
-        return total + ((total * IVA) / 100);
+        return total;
+    }
+
+    /**
+     * @return el valor del Impuesto
+     */
+    public double calcularImpuesto() {
+        return this.calcularTotal() - this.calcularSubtotal();
     }
 
     // Getters
