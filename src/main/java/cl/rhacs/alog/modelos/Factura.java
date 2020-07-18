@@ -6,6 +6,12 @@ import java.util.Set;
 
 public class Factura {
 
+    // Constantes
+    // -----------------------------------------------------------------------------------------
+
+    /** Impuesto al Valor Agregado */
+    private final int IVA = 19;
+
     // Atributos
     // -----------------------------------------------------------------------------------------
 
@@ -63,6 +69,34 @@ public class Factura {
      */
     public boolean quitarItem(Item item) {
         return this.items.remove(item);
+    }
+
+    /**
+     * @return el número de elementos presentes en el listado
+     */
+    public int contarItems() {
+        return this.items.size();
+    }
+
+    /**
+     * @return el valor total, incluido el iva, de la {@link Factura}
+     */
+    public double calcularTotal() {
+        // Verificar si no hay elementos
+        if (items.isEmpty()) {
+            return 0;
+        }
+
+        // Inicializar total
+        double total = 0;
+
+        // Por cada item, sumar su precio unitario por la cantidad al total
+        for (Item item : items) {
+            total += item.getPrecioUnitario() * item.getCantidad();
+        }
+
+        // Aplicar IVA y devolver valor
+        return total + ((total * IVA) / 100);
     }
 
     // Getters
