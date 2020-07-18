@@ -17,6 +17,12 @@ public class Item {
     /** Cantidad del {@link Item} */
     private int cantidad;
 
+    /**
+     * Identificador numérico de la {@link Factura} a la que pertenece el
+     * {@link Item}
+     */
+    private int facturaId;
+
     // Constructores
     // -----------------------------------------------------------------------------------------
 
@@ -34,8 +40,9 @@ public class Item {
      * @param descripcion    descripción del producto
      * @param precioUnitario valor unitario
      * @param cantidad       cantidad del producto
+     * @param facturaId      identificador numérico de la {@link Factura}
      */
-    public Item(int itemId, String descripcion, double precioUnitario, int cantidad) {
+    public Item(int itemId, String descripcion, double precioUnitario, int cantidad, int facturaId) {
         this.itemId = itemId;
         this.descripcion = descripcion;
         this.precioUnitario = precioUnitario;
@@ -72,6 +79,13 @@ public class Item {
         return cantidad;
     }
 
+    /**
+     * @return el identificador numérico de la {@link Factura}
+     */
+    public int getFacturaId() {
+        return facturaId;
+    }
+
     // Setters
     // -----------------------------------------------------------------------------------------
 
@@ -103,6 +117,13 @@ public class Item {
         this.cantidad = cantidad;
     }
 
+    /**
+     * @param facturaId el identificador numérico de la {@link Factura} a establecer
+     */
+    public void setFacturaId(int facturaId) {
+        this.facturaId = facturaId;
+    }
+
     // Herencias (Object)
     // -----------------------------------------------------------------------------------------
 
@@ -111,7 +132,6 @@ public class Item {
         final int prime = 31;
         int result = 1;
 
-        result = prime * result + ((descripcion == null) ? 0 : descripcion.hashCode());
         result = prime * result + itemId;
 
         return result;
@@ -130,12 +150,6 @@ public class Item {
 
         Item other = (Item) obj;
 
-        if (descripcion == null) {
-            if (other.descripcion != null)
-                return false;
-        } else if (!descripcion.equals(other.descripcion))
-            return false;
-
         if (itemId != other.itemId)
             return false;
 
@@ -145,6 +159,6 @@ public class Item {
     @Override
     public String toString() {
         return "Item [itemId=" + itemId + ", descripcion=" + descripcion + ", precioUnitario=" + precioUnitario
-                + ", cantidad=" + cantidad + "]";
+                + ", cantidad=" + cantidad + ", facturaId=" + facturaId + "]";
     }
 }
