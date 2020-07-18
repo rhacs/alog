@@ -21,6 +21,7 @@ CREATE OR REPLACE TRIGGER alog_facturas_trg
 BEGIN
     :new.factura_id := alog_facturas_seq.nextval;
 END;
+/
 
 ----------------------------------------------------------------------------------------------------
 -- Tabla: Items
@@ -50,3 +51,4 @@ CREATE OR REPLACE TRIGGER alog_items_trg
 BEGIN
     :new.item_id := alog_items_seq.nextval;
 END;
+/
