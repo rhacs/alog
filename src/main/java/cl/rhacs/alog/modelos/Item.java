@@ -48,6 +48,28 @@ public class Item {
         this.precioUnitario = precioUnitario;
     }
 
+    // Métodos
+    // -----------------------------------------------------------------------------------------
+
+    /**
+     * @return el subtotal del {@link Item}
+     */
+    public double calcularSubtotal() {
+        // Calcular el subtotal y devolver el resultado
+        return precioUnitario * cantidad;
+    }
+
+    /**
+     * @return el total, incluido el IVA, del {@link Item}
+     */
+    public double calcularTotal() {
+        // Obtener el subtotal
+        double subtotal = this.calcularSubtotal();
+
+        // Calcular el IVA y devolver resultado
+        return subtotal + ((subtotal * Factura.IVA) / 100);
+    }
+
     // Getters
     // -----------------------------------------------------------------------------------------
 
