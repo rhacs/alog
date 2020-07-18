@@ -324,6 +324,61 @@ public class ItemsRepositorio implements IItemsRepositorio {
     }
 
     /**
+     * Busca todos los registros en el repositorio que coincidan con el
+     * identificador numérico de la {@link Factura}
+     * 
+     * @param id identificador numérico de la {@link Factura}
+     * @return un objeto {@link List} con los resultados, {@code null} en cualquier
+     *         otro caso
+     */
+    @Override
+    public List<Item> buscarPorFacturaId(int id) {
+        // Crear listado
+        List<Item> items = null;
+
+        // Conectar
+        Connection con = conexion.conectar();
+
+        // Verificar conexion
+        if (con != null) {
+            try {
+                // Definir consulta
+                String sql = BASE_SELECT + " WHERE factura_id = ?";
+
+                // Preparar consulta
+                PreparedStatement ps = con.prepareStatement(sql);
+
+                // Poblar consulta
+                ps.setInt(1, id);
+
+                // Ejecutar consulta
+                ResultSet rs = ps.executeQuery();
+
+                // Verificar si hay resultados
+                if (rs.next()) {
+                    // Inicializar listado
+                    items = new ArrayList<>();
+
+                    // Extraer resultados
+                    do {
+                        Item item = this.extraerItem(rs);
+
+                        // Agregar al listado
+                        items.add(item);
+                    } while (rs.next());
+                }
+            } catch (SQLException e) {
+                Utilidades.extraerError(this.getClass().getSimpleName(), "buscarPorFacturaId", e);
+            } finally {
+                // Desconectar
+                conexion.desconectar();
+            }
+        }
+
+        return items;
+    }
+
+    /**
      * Actualiza la información de un registro en el repositorio
      * 
      * @param registro objeto {@link Item} a actualizar

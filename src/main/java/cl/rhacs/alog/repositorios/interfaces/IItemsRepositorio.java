@@ -9,5 +9,7 @@ public interface IItemsRepositorio extends IRepositorio<Item> {
     public List<Item> busarPorDescripcion(String descripcion);
 
     public List<Item> buscarPorPrecio(double precio);
+    
+    public List<Item> buscarPorFacturaId(int id);
 
 }
