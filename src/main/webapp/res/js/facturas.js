@@ -11,7 +11,7 @@ $(function() {
         // Filtrar acción
         if (accion === 'nuevo') {
             // Redireccionar
-            $(location).attr('href', '/alog/nuevo');
+            $(location).attr('href', '/alog/facturas/nueva');
         } else if (accion === 'detalles') {
             // Redireccionar
             $(location).attr('href', '/alog/facturas/' + id);
