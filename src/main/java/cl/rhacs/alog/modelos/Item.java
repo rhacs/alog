@@ -14,6 +14,9 @@ public class Item {
     /** Precio unitario del {@link Item} */
     private double precioUnitario;
 
+    /** Cantidad del {@link Item} */
+    private int cantidad;
+
     // Constructores
     // -----------------------------------------------------------------------------------------
 
@@ -30,8 +33,9 @@ public class Item {
      * @param itemId         identificador numérico
      * @param descripcion    descripción del producto
      * @param precioUnitario valor unitario
+     * @param cantidad       cantidad del producto
      */
-    public Item(int itemId, String descripcion, double precioUnitario) {
+    public Item(int itemId, String descripcion, double precioUnitario, int cantidad) {
         this.itemId = itemId;
         this.descripcion = descripcion;
         this.precioUnitario = precioUnitario;
@@ -61,6 +65,13 @@ public class Item {
         return precioUnitario;
     }
 
+    /**
+     * @return la cantidad del producto
+     */
+    public int getCantidad() {
+        return cantidad;
+    }
+
     // Setters
     // -----------------------------------------------------------------------------------------
 
@@ -83,6 +94,13 @@ public class Item {
      */
     public void setPrecioUnitario(double precioUnitario) {
         this.precioUnitario = precioUnitario;
+    }
+
+    /**
+     * @param cantidad la cantidad del producto a establecer
+     */
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
     }
 
     // Herencias (Object)
@@ -126,6 +144,7 @@ public class Item {
 
     @Override
     public String toString() {
-        return "Item [itemId=" + itemId + ", descripcion=" + descripcion + ", precioUnitario=" + precioUnitario + "]";
+        return "Item [itemId=" + itemId + ", descripcion=" + descripcion + ", precioUnitario=" + precioUnitario
+                + ", cantidad=" + cantidad + "]";
     }
 }
