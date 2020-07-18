@@ -6,7 +6,7 @@ import cl.rhacs.alog.modelos.Item;
 
 public interface IItemsRepositorio extends IRepositorio<Item> {
 
-    public Item buscarPorDescripcion(String descripcion);
+    public List<Item> busarPorDescripcion(String descripcion);
 
     public List<Item> buscarPorPrecio(double precio);
 
