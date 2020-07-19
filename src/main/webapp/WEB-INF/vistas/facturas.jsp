@@ -40,6 +40,14 @@
                 </div>
             </div>
 
+            <core:if test="${ not empty param.rem }">
+                <div class="alert alert-success">La Factura con el identificador '${ param.rem }' ha sido eliminada correctamente</div>
+            </core:if>
+
+            <core:if test="${ not empty param.noid }">
+                <div class="alert alert-warning">La Factura con el identificador '${ param.noid }' no existe en nuestros registros</div>
+            </core:if>
+
             <div class="table-responsive">
                 <table class="table table-hover table-striped">
                     <thead>
