@@ -9,4 +9,6 @@ public interface IFacturasRepositorio extends IRepositorio<Factura> {
 
     public List<Factura> buscarPorFecha(Date fecha);
     
+    public Factura buscarUltima();
+
 }

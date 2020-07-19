@@ -264,6 +264,47 @@ public class FacturasRepositorio implements IFacturasRepositorio {
     }
 
     /**
+     * Busca la última factura registrada en el repositorio
+     * 
+     * @return un objeto {@link Factura} con el resultado, {@code null} en cualquier
+     *         otro caso
+     */
+    @Override
+    public Factura buscarUltima() {
+        // Crear respuesta
+        Factura factura = null;
+
+        // Conectar
+        Connection con = conexion.conectar();
+
+        // Verificar conexion
+        if (con != null) {
+            try {
+                // Definir consulta
+                String sql = BASE_SELECT + " WHERE factura_id = (SELECT MAX(factura_id) FROM " + TABLA + ")";
+
+                // Preparar consulta
+                PreparedStatement ps = con.prepareStatement(sql);
+
+                // Ejecutar consulta
+                ResultSet rs = ps.executeQuery();
+
+                // Verificar resultados
+                if (rs.next()) {
+                    factura = this.extraerFactura(rs);
+                }
+            } catch (SQLException e) {
+                Utilidades.extraerError(this.getClass().getSimpleName(), "buscarUltima", e);
+            } finally {
+                // Desconectar
+                conexion.desconectar();
+            }
+        }
+
+        return factura;
+    }
+
+    /**
      * Actualiza la información de un registro en el repositorio
      * 
      * @param registro objeto {@link Factura} con la información a actualizar
