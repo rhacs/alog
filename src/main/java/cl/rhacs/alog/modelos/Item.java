@@ -46,6 +46,8 @@ public class Item {
         this.itemId = itemId;
         this.descripcion = descripcion;
         this.precioUnitario = precioUnitario;
+        this.cantidad = cantidad;
+        this.facturaId = facturaId;
     }
 
     // Métodos
