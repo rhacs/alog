@@ -176,8 +176,11 @@ public class FacturasRepositorio implements IFacturasRepositorio {
         // Verificar conexión
         if (con != null) {
             try {
+                // Definir consulta
+                String sql = BASE_SELECT + " ORDER BY fecha DESC";
+
                 // Preparar consulta
-                PreparedStatement ps = con.prepareStatement(BASE_SELECT);
+                PreparedStatement ps = con.prepareStatement(sql);
 
                 // Ejecutar consulta
                 ResultSet rs = ps.executeQuery();
