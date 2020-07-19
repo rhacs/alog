@@ -5,6 +5,15 @@ $(function() {
         return new Date().toJSON().split('T')[0];
     });
 
+    // Al presionar el botón eliminar factura
+    $('[data-chaleco]').on('click', function() {
+        // Obtener el identificador
+        let id = $(this).data('id');
+
+        // Redireccionar
+        $(location).attr('href', '/alog/chauchera/' + id);
+    });
+
     // Al presionar el botón Agregar Item
     $('[data-agregar]').on('click', function() {
         // Crear tr
