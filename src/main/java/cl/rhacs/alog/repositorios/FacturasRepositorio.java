@@ -364,7 +364,7 @@ public class FacturasRepositorio implements IFacturasRepositorio {
         if (con != null) {
             try {
                 // Definir consulta
-                String sql = "DELELE FROM " + TABLA + " WHERE factura_id = ?";
+                String sql = "DELETE FROM " + TABLA + " WHERE factura_id = ?";
 
                 // Preparar consulta
                 PreparedStatement ps = con.prepareStatement(sql);
