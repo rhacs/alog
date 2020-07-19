@@ -36,7 +36,7 @@
                 </div>
 
                 <div class="col-2 text-right">
-                    <button type="button" class="btn btn-primary" data-action="nuevo">+</button>
+                    <button type="button" class="btn btn-primary" data-action="nuevo">Nueva</button>
                 </div>
             </div>
 
