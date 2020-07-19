@@ -33,8 +33,11 @@
             <!-- Contenido -->
 
             <div class="row border-bottom my-4">
-                <div class="col-12">
+                <div class="col-11">
                     <h1>Detalles de la Factura</h1>
+                </div>
+                <div class="col-1 text-right">
+                    <button type="button" class="btn btn-danger" data-id="${factura.getFacturaId()}" data-chaleco>-</button>
                 </div>
             </div>
 
