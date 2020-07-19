@@ -56,7 +56,7 @@
                         </tbody>
                     </table>
 
-                    <table class="table table-striped table-hover mt-2">
+                    <table class="table table-bordered table-hover mt-2">
                         <thead>
                             <tr>
                                 <th scope="col" class="text-nowrap">Cant.</th>
@@ -114,5 +114,6 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"
             integrity="sha512-I5TkutApDjnWuX+smLIPZNhw+LhTd8WrQhdCKsxCFRSvhFx2km8ZfEpNIhF9nq04msHhOkE8BMOBj5QE07yhMA=="
             crossorigin="anonymous"></script>
+        <script type="text/javascript" src="<core:url value="/res/js/facturas.js" />"></script>
     </body>
 </html>
