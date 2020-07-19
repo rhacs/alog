@@ -57,10 +57,10 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <th scope="row" class="text-nowrap"><input type="number" class="form-control" min="1" max="1000000" value="1" required></th>
+                                    <th scope="row" class="text-nowrap"><input type="number" name="cantidad" id="cantidad" class="form-control" min="1" max="1000000" value="1" required></th>
                                     <td class="text-nowrap"><input type="text" class="form-control" name="descripcion" id="descripcion" maxlength="250" required></td>
                                     <td class="text-nowrap"><input type="number" class="form-control" name="precio" id="precio" min="1" value="1" required></td>
-                                    <td class="text-nowrap"><button type="button" class="btn btn-danger" data-eliminar>X</button></td>
+                                    <td class="text-nowrap"></td>
                                 </tr>
                             </tbody>
                         </table>
